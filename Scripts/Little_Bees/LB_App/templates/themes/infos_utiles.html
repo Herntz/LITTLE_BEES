@@ -1,0 +1,150 @@
+{% load static %}
+{% include 'themes/header.html' %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/mo.css' %}">
+
+        <!-- Page Header End -->
+        <div class="container-xxl py-5 page-header position-relative mb-5">
+            <div class="container py-5">
+                <h1 class="display-2 text-white animated slideInDown mb-4">Informations utiles</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{'index'}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Informations utiles</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Header End -->
+      <!-- Appointment Start bod -->
+      <div class="container-xxl wow fadeIn" data-wow-delay="0.1s ">
+      
+        <div class="bg-light rounded">
+            <div class="row ">
+            <h1 class="mb-4" style="margin-left: 30px; ">Liste des Enfants inscrits</h1>        
+                <!-- <body class="bod"> -->
+    <!-- <main class="table"> -->
+       
+        <section class="table__header">
+            
+            <div class="input-group" style="margin-left: 30px; margin-bottom: -60px;">
+                <input type="search" placeholder="Rechercher un Enfants...">
+                {% comment %} <img src="{% static 'img/search.png'%}" alt=""> {% endcomment %}
+            </div>
+      
+            <div class="export__file" style="margin-right: 30px; margin-bottom: -20px;"><h4>Trier par Section</h4>
+                <form id="triForm" method="get">
+                    <section class="table__header">
+                <div class="radio-inputs">
+                    <label class="radio">
+                        <a href="{{ 'infos_utiles' }}"><input type="radio" name="section" value="tous" {% if not request.GET.section %}checked{% endif %}>
+                        <span class="name" data-section="tous">Tous: {{ nombre_enfants_tous }}</span></a>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="section" value="Petite" {% if request.GET.section == 'Petite' %}checked{% endif %}>
+                        <span class="name" data-section="Petite">Petite: {{ nombre_enfants_petite }}</span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="section" value="Moyenne" {% if request.GET.section == 'Moyenne' %}checked{% endif %}>
+                        <span class="name" data-section="Moyenne">Moyenne: {{ nombre_enfants_moyenne }}</span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="section" value="Grande" {% if request.GET.section == 'Grande' %}checked{% endif %}>
+                        <span class="name" data-section="Grande">Grande: {{ nombre_enfants_grande }}</span>
+                    </label>
+                </div>
+                        <!-- Les boutons radio de tri -->
+                        <!-- ... (le reste du code des boutons radio) ... -->
+                    </section>
+                </form>
+                
+            </div>
+        </section>
+        <div id="children-table">
+           <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Enfants<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Née le<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Section<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Sexe<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Parent<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Phone<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Details<span class="icon-arrow">&UpArrow;</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in all_children %}
+                    <tr>
+                        <td> {{ i.id }} </td>
+                        <td><img src="{{ i.photo.url }}" alt="">{{ i.nom}} {{ i.prenom}}</td>
+                        <td> {{ i.date_naissance }}</td>
+                        <td> {{ i.section }}</td>
+                        <td> {{ i.sexe }}</td>
+                        <!-- <td>
+                            <p class="status delivered">Delivered</p>
+                        </td> -->
+                        <td> <strong> {{ i.parent }} </strong></td>
+                        <td> {{ i.tel }}</td>
+                           <td>
+                        <div class="uiverse" 
+                        data-id="{{ i.id }}"
+                        data-nom="{{ i.nom }}"
+                        data-prenom="{{ i.prenom }}"
+                        data-sexe="{{ i.sexe }}"
+                        data-parent="{{ i.parent }}"
+                        data-tel="{{ i.tel }}"
+                        data-email_parent="{{ i.email_parent }}"
+                        data-date_naissance="{{ i.date_naissance }}"
+                        data-photo="{{ i.photo.url }}"
+                        data-section="{{ i.section }}">
+                         
+
+                                <span class="tooltip">details</span>
+                                <span class="trig">
+                                 <i class="fa fa-list"></i>
+                          </span>  
+                        </div>
+                            <!-- <p class="status delivered">Voir</p> -->
+                        </td> 
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+
+        </section>
+        </div>
+       
+    <!-- </main> -->
+            <!-- </body>    -->
+            </div>
+    </div><div class="modal-overlay">
+        <div class="modal-container">
+            <span class="close-btn">&times;</span>
+            
+            <div class="modal-form-content">
+                
+                <form action=""><h2>Informations de l'enfant</h2>
+                    <img id="modal-photo" src="" alt="Photo de l'enfant">
+                <label for="">Enfant: <span id="modal-nom">  </span> <span id="modal-prenom"> </span><span style="margin-left: 20px;"></span> Sexe: <span id="modal-sexe"></span> </label>
+            
+            <p>Date de Naissance: <span id="modal-date-naissance"></span></p>
+            <p>Section: <span id="modal-section"></span></p>
+            <p>Parent: <span id="modal-parent"></span></p>
+            <p>Téléphone Parent: <span id="modal-tel"></span></span></p>
+            <p>Email Parent: <span id="modal-email-parent"></span></span></p>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    
+<script src="{% static 'js/sort_child.js' %}"></script>
+<script src="{% static 'js/mo.js' %}"></script>
+        <!-- Appointment End -->
+        {% include 'themes/footer.html' %}
+        {% endblock content %}

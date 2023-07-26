@@ -1,0 +1,55 @@
+{% load static %}
+{% include 'themes/header.html' %}
+{% block content %}
+<!-- ... (HTML existant) ... -->
+
+<!-- Ajoutez le lien vers le fichier CSS externe -->
+<link rel="stylesheet" href="{% static 'css/mod.css' %}">
+
+<!-- ... (HTML existant) ... -->
+
+<!-- Tableau avec bouton d'ouverture du modal -->
+<table>
+    <thead>
+        <tr>
+            <!-- ... (en-tête de tableau existant) ... -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in all_children %}
+        <tr>
+            <!-- ... (contenu de ligne de tableau existant) ... -->
+            <td>
+                <button class="info-btn" data-id="{{ i.id }}">Info</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal-overlay">
+    <div class="modal-container">
+        <span class="close-btn">&times;</span>
+        <div class="modal-form-content">
+            <h2>Formulaire d'information</h2>
+            <form>
+                <!-- Ajoutez les champs du formulaire ici -->
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Ajoutez le lien vers le fichier JS externe -->
+<script src="{% static 'js/mod.js' %}"></script>
+
+{% include 'themes/footer.html' %}
+{% endblock content %}

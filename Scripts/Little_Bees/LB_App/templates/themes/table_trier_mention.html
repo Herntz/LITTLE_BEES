@@ -1,0 +1,34 @@
+{% load static %}
+{% block content %}
+
+<div id="children-table">
+    <section class="table__body">
+    
+            <tbody>
+                {% for child in children %}
+    <tr>
+        <td> {{ child.id }} </td>
+        <td><img src="{{ child.photo.url }}" alt="">
+                      {{ child.nom }} {{ child.prenom }}
+        </td>
+        <td>{{ child.section }}</td>
+        <td>{{ child.average }}</td>
+        <td ><p class="status {{child.status}}">{{ child.mention }}</p></td>
+        <td>
+            <div class="uiverse">
+                    <span class="tooltip">details</span>
+                    <span class="trig"><i class="fa fa-list"></i></span>  
+            </div>
+        </td> 
+    </tr>
+    {% endfor %}
+                
+            </tbody>
+        </table>
+
+    </section>
+    </div>
+<script src="{% static 'js/sort_mention.js' %}"></script>
+<script src="{% static 'js/mo.js' %}"></script>
+        <!-- Appointment End -->
+        {% endblock content %}

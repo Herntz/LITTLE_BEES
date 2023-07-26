@@ -1,0 +1,111 @@
+{% load static %}
+{% include 'themes/header.html' %}
+{% block content %}
+{% if messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert" style="text-align: center; ">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+        <!-- Page Header End -->
+        <div class="container-xxl py-5 page-header position-relative mb-5">
+            <div class="container py-5">
+                <h1 class="display-2 text-white animated slideInDown mb-4">Contactez-nous</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{'index'}}">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="#">Informations utiles</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Contacts</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Header End -->
+       
+
+        <!-- Contact Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Entrer en contact</h1>
+                    <p>Nous serions ravis de vous entendre ! Si vous avez des questions, des commentaires ou si vous souhaitez en savoir plus sur notre École Maternelle, n'hésitez pas à nous contacter.</p>
+                </div>
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">
+                            <i class="fa fa-map-marker-alt fa-2x text-primary"></i>
+                        </div>
+                        <h6>#3 Kite-O impasse Catherine Flon, Cap-Haïtien, Haiti</h6>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">
+                            <i class="fa fa-envelope-open fa-2x text-primary"></i>
+                        </div>
+                        <h6>infoslittlebees@gmail.com</h6>
+                    </div>
+                    <div class="col-md-6 col-lg-4 text-center wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 75px; height: 75px;">
+                            <i class="fa fa-phone-alt fa-2x text-primary"></i>
+                        </div>
+                        <h6>+509 3333-5540</h6>
+                    </div>
+                </div>
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <p class="mb-4">Remplissez ce formulaire pour nou contacter.</p>
+                               
+                                <form method="post" action="{% url 'contact' %}">
+                                    {% csrf_token %}
+                                    <div class="row g-3">
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="name" name="nom_complet" placeholder="Votre Nom">
+                                                <label for="name">Votre Nom</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control border-0"name="email" id="email" placeholder="Votre Email">
+                                                <label for="email">Votre Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <input type="text" name="objet" class="form-control border-0" id="subject" placeholder="Sujet">
+                                                <label for="subject">Sujet</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control border-0" name="message" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                                <label for="message">Message</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Envoyer Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <iframe class="position-relative rounded w-100 h-100" 
+                                src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=%233%20Kite-O%20impasse%20Catherine%20Flon%2C%20Cap-Ha%C3%AFtien(en%20arri%C3%A8re%20de%20l%5C'ancienne%20usine%20d%5C'eau%20Chrystal)%2C%20Cap-Ha%C3%AFtien%2C%20Haiti+(Little%20Bees)&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed" frameborder="0" style="min-height: 400px; border:0;" allowfullscreen="" aria-hidden="false"
+                                tabindex="0">
+                            </iframe>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+        {% include 'themes/footer.html' %}
+        {% endblock content %}

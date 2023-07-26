@@ -1,0 +1,107 @@
+{% load static %}
+{% block content %}
+
+<head>
+   
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css'%}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/custom.css'%}" rel="stylesheet">
+</head>
+
+<link rel="stylesheet" href="{% static 'css/mo.css' %}">
+<div id="children-table">
+    <section class="table__body">
+     <table>
+         <thead>
+             <tr>
+                 <th>Id<span class="icon-arrow">&UpArrow;</span></th>
+                 <th>Enfants<span class="icon-arrow">&UpArrow;</span></th>
+                 <th>Née le<span class="icon-arrow">&UpArrow;</span></th>
+                 <th>Section<span class="icon-arrow">&UpArrow;</span></th>
+                 <th>Sexe<span class="icon-arrow">&UpArrow;</span></th>
+                 <th>Parent<span class="icon-arrow">&UpArrow;</span></th>
+                 <th>Phone<span class="icon-arrow">&UpArrow;</span></th>
+                 <th>Details<span class="icon-arrow">&UpArrow;</span></th>
+             </tr>
+         </thead>
+         <tbody>
+             {% for i in all_children %}
+             <tr>
+                 <td> {{ i.id }} </td>
+                 <td><img src="{{ i.photo.url }}" alt="">{{ i.nom}} {{ i.prenom}}</td>
+                 <td> {{ i.date_naissance }}</td>
+                 <td> {{ i.section }}</td>
+                 <td> {{ i.sexe }}</td>
+                 <!-- <td>
+                     <p class="status delivered">Delivered</p>
+                 </td> -->
+                 <td> <strong> {{ i.parent }} </strong></td>
+                 <td> {{ i.tel }}</td>
+                    <td>
+                 <div class="uiverse" 
+                 data-id="{{ i.id }}"
+                 data-nom="{{ i.nom }}"
+                 data-prenom="{{ i.prenom }}"
+                 data-sexe="{{ i.sexe }}"
+                 data-parent="{{ i.parent }}"
+                 data-tel="{{ i.tel }}"
+                 data-email_parent="{{ i.email_parent }}"
+                 data-date_naissance="{{ i.date_naissance }}"
+                 data-photo="{{ i.photo.url }}"
+                 data-section="{{ i.section }}">
+                  
+
+                         <span class="tooltip">details</span>
+                         <span class="trig">
+                          <i class="fa fa-list"></i>
+                   </span>  
+                 </div>
+                     <!-- <p class="status delivered">Voir</p> -->
+                 </td> 
+             </tr>
+             {% endfor %}
+             
+         </tbody>
+     </table>
+
+ </section>
+ </div>
+
+<!-- </main> -->
+     <!-- </body>    -->
+     </div>
+</div><div class="modal-overlay">
+ <div class="modal-container">
+     <span class="close-btn">&times;</span>
+     <div class="modal-form-content">
+         <form action=""><h2>Informations de l'enfant</h2>
+             <img id="modal-photo" src="" alt="Photo de l'enfant">
+         <label for="">Enfant: <span id="modal-nom">  </span> <span id="modal-prenom"> </span><span style="margin-left: 20px;"></span> Sexe: <span id="modal-sexe"></span> </label>
+     
+     <p>Date de Naissance: <span id="modal-date-naissance"></span></p>
+     <p>Section: <span id="modal-section"></span></p>
+     <p>Parent: <span id="modal-parent"></span></p>
+     <p>Téléphone Parent: <span id="modal-tel"></span></span></p>
+     <p>Email Parent: <span id="modal-email-parent"></span></span></p>
+     </form>
+     </div>
+ </div>
+</div>
+<script src="{% static 'js/sort_child.js' %}"></script>
+<script src="{% static 'js/mo.js' %}"></script>
+{% endblock content %}

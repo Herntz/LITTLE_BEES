@@ -1,0 +1,214 @@
+{% load static %}
+{% include 'themes/header.html' %}
+{% block content %}
+
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0 mb-5">
+            <div class="owl-carousel header-carousel position-relative">
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="{% static 'img/carousel-1.jpg '%}" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">L'école maternelle la mieux adaptée à votre enfant.</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">"Ensemble vers l'avenir : Une école maternelle où chaque enfant s'épanouit, découvre, et grandit dans un environnement bienveillant, stimulant et enrichissant.</p>
+                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Lire Plus</a>
+                                    <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">-----------</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="{% static 'img/carousel-2.jpg '%}" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">Offrez un avenir meilleur à votre enfant</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">"Un monde de découvertes et d'épanouissement pour nos tout-petits. Cultivons l'amour de l'apprentissage dès les premières étapes de leur voyage éducatif."</p>
+                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
+                                    <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+        <!-- Facilities Start -->
+        <div class="container-xxl py-5" id="serv">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Bienvenue sur le site Little Bees</h1>
+                    <p>Offrez à vos petits une expérience mémorable et célébrez avec PLAY ! Qu'il s'agisse de fêtes d'anniversaire, de remises de diplômes à la maternelle ou de célébrations d'équipes de football, Little Bee's propose un lieu et des options incroyables, notre équipe peut vous aider à rendre chaque journée encore plus spéciale.</p>
+                </div>
+                <div class="row g-4">
+                    <h4 class="mb-5 wow fadeInUp" data-wow-delay="0.1s">Nos Activités</h4>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-primary">
+                                <span class="bg-primary"></span>
+                                <i class="fas fa-brain fa-3x text-primary"></i>
+                                <span class="bg-primary"></span>
+                            </div>
+                            <div class="facility-text bg-primary">
+                                <h3 class="text-primary mb-3">Activités d'éveil artistique</h3>
+                                <p class="mb-0">dessin, peinture, musique, etc...<br>Stimuler la créativité par le biais d'activités artistiques</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-success">
+                                <span class="bg-success"></span>
+                                <i class="fa fa-futbol fa-3x text-success"></i>
+                                <span class="bg-success"></span>
+                            </div>
+                            <div class="facility-text bg-success">
+                                <h3 class="text-success mb-3">Activités physiques et sportives</h3>
+                                <p class="mb-0">Développement de la coordination et des compétences physiques.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-warning">
+                                <span class="bg-warning"></span>
+                                <i class="fa fa-home fa-3x text-warning"></i>
+                                <span class="bg-warning"></span>
+                            </div>
+                            <div class="facility-text bg-warning">
+                                <h3 class="text-warning mb-3">Cantine saine</h3>
+                                <p class="mb-0">Repas sains pour une alimentation adéquate.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-info">
+                                <span class="bg-info"></span>
+                                <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                                <span class="bg-info"></span>
+                            </div>
+                            <div class="facility-text bg-info">
+                                <h3 class="text-info mb-3">Apprentissage positif</h3>
+                                <p class="mb-0"> Encouragement de la curiosité naturelle à travers des activités interactives.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="facility-item">
+                                <div class="facility-icon bg-primary">
+                                    <span class="bg-primary"></span>
+                                    <i class="fas fa-brain fa-3x text-primary"></i>
+                                    <span class="bg-primary"></span>
+                                </div>
+                                <div class="facility-text bg-primary">
+                                    <h3 class="text-primary mb-3">Cour de Langues</h3>
+                                    <p class="mb-0">Initiation à de nouvelles langues pour enrichir leur horizon.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="facility-item">
+                                <div class="facility-icon bg-success">
+                                    <span class="bg-success"></span>
+                                    <i class="fa fa-futbol fa-3x text-success"></i>
+                                    <span class="bg-success"></span>
+                                </div>
+                                <div class="facility-text bg-success">
+                                    <h3 class="text-success mb-3">Ateliers de développement des compétences</h3>
+                                    <p class="mb-0">Apprentissage des compétences émotionnelles et sociales</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="facility-item">
+                                <div class="facility-icon bg-warning">
+                                    <span class="bg-warning"></span>
+                                    <i class="fa fa-home fa-3x text-warning"></i>
+                                    <span class="bg-warning"></span>
+                                </div>
+                                <div class="facility-text bg-warning">
+                                    <h3 class="text-warning mb-3">Activités parascolaires en option</h3>
+                                    <p class="mb-0"> Possibilité de découvrir de nouveaux domaines d'intérêt.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="facility-item">
+                                <div class="facility-icon bg-info">
+                                    <span class="bg-info"></span>
+                                    <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                                    <span class="bg-info"></span>
+                                </div>
+                                <div class="facility-text bg-info">
+                                    <h3 class="text-info mb-3">Sorties éducatives</h3>
+                                    <p class="mb-0">Expériences enrichissantes en dehors de l'école.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Facilities End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Nos Clients Disent!</h1>
+                    <p>Ces témoignages reflètent la satisfaction et la confiance des parents envers notre école maternelle, mettant en évidence notre dévouement à offrir une éducation de qualité et à favoriser l'épanouissement de chaque enfant.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-7">Je suis tellement heureuse d'avoir inscrit mon enfant dans cette école maternelle ! L'environnement chaleureux et les enseignants dévoués ont aidé mon enfant à s'épanouir et à développer sa curiosité naturelle.</p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'img/testimonial-1.jpg'%}" style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Sophie L. (Parent)</h3>
+                                <span>Commerçante</span>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-7">"Cette école maternelle a dépassé toutes nos attentes. Les activités variées et l'attention personnalisée accordée à chaque enfant sont remarquables. Mon fils est heureux d'aller à l'école tous les jours et il est enthousiaste à l'idée d'apprendre de nouvelles choses.</p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'img/testimonial-2.jpg'%}" style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">David T. (Parent) </h3>
+                                <span>Medecin</span>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-7">"C'est incroyable de voir à quel point notre enfant a grandi depuis qu'il a rejoint cette école maternelle. Les enseignants sont très attentionnés et ils ont su créer un environnement propice à l'apprentissage et à l'amusement</p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'img/testimonial-3.jpg'%}" style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Marc D. (Parent) </h3>
+                                <span>Ingenieur</span>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+        {% include 'themes/footer.html' %}
+        {% endblock %}
+        

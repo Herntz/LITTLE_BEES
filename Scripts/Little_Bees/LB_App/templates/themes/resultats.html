@@ -1,0 +1,129 @@
+{% load static %}
+{% include 'themes/header.html' %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/mo.css' %}">
+
+        <!-- Page Header End -->
+        <div class="container-xxl py-5 page-header position-relative mb-5">
+            <div class="container py-5">
+                <h1 class="display-2 text-white animated slideInDown mb-4">Resultat du Concours</h1>
+                <nav aria-label="breadcrumb animated slideInDown">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{'index'}}">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="#">Informations utiles</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Resultat du Concours</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Header End -->
+      <!-- Appointment Start bod -->
+      <div class="container-xxl wow fadeIn" data-wow-delay="0.1s ">
+      
+        <div class="bg-light rounded">
+            <div class="row ">
+            <h1 class="mb-4" style="margin-left: 30px; ">Liste des Enfants inscrits</h1>        
+                <!-- <body class="bod"> -->
+    <!-- <main class="table"> -->
+       
+        <section class="table__header">
+            
+            <div class="input-group" style="margin-left: 30px; margin-bottom: -60px;">
+                <input type="search" placeholder="Rechercher un Enfants...">
+                {% comment %} <img src="{% static 'img/search.png'%}" alt=""> {% endcomment %}
+            </div>
+      
+            <div class="export__file" style="margin-right: 30px; margin-bottom: -20px;"><h4>Trier par</h4>
+                <form id="triForm" method="get">
+                    <section class="table__header">
+                <div class="radio-inputs">
+                    <label class="radio">
+                        <a href="{{'resultats'}}"><input type="radio" name="mention" value="tous" {% if not request.GET.mention %}checked{% endif %}>
+                        <span class="name" data-section="tous" >Tous : {{ nombre_enfants_tous }} </span></a>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="mention" value="Accepter" 
+                        {% if request.GET.mention == 'Accepter' %}checked{% endif %}>
+                        <span class="name" data-section="Accepter">Accepter : {{ nombre_enfants_accepter }} </span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="mention" value="Refuser" {% if request.GET.mention == 'Refuser' %}checked{% endif %}>
+                        <span class="name" data-section="Refuser">Refuser : {{ nombre_enfants_refuser }} </span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="mention" value="Aucune note" {% if request.GET.mention == 'Aucune note' %}checked{% endif %}>
+                        <span class="name" data-section="Aucune note">Aucune: {{ nombre_enfants_aucune }} </span>
+                    </label>
+                </div>
+                        <!-- Les boutons radio de tri -->
+                        <!-- ... (le reste du code des boutons radio) ... -->
+                    </section>
+                </form>
+            </div>
+        </section>
+        <div id="children-table">
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Enfants<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Section<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Moyenne<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Mention<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Details<span class="icon-arrow">&UpArrow;</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for child in children %}
+        <tr>
+            <td> {{ child.id }} </td>
+            <td><img src="{{ child.photo.url }}" alt="">{{ child.nom }} {{ child.prenom }}</td>
+            <td>{{ child.section }}</td>
+            <td>{{ child.average }}</td>
+            <td ><p class="status {{child.status}}">{{ child.mention }}</p></td>
+            <td>
+                <div class="uiverse">
+                        <span class="tooltip">details</span>
+                        <span class="trig">
+                         <i class="fa fa-list"></i>
+                  </span>  
+                </div>
+                    <!-- <p class="status delivered">Voir</p> -->
+                </td> 
+        </tr>
+        {% endfor %}
+                    
+                </tbody>
+            </table>
+
+        </section>
+        </div>
+    <!-- </main> -->
+            <!-- </body>    -->
+            </div>
+    </div><div class="modal-overlay">
+        <div class="modal-container">
+            <span class="close-btn">&times;</span>
+            
+            <div class="modal-form-content">
+                
+                <form action=""><h2>Informations de l'enfant</h2>
+                    <img id="modal-photo" src="" alt="Photo de l'enfant">
+                <label for="">Enfant: <span id="modal-nom">  </span> <span id="modal-prenom"> </span><span style="margin-left: 20px;"></span> Sexe: <span id="modal-sexe"></span> </label>
+            
+            <p>Date de Naissance: <span id="modal-date-naissance"></span></p>
+            <p>Section: <span id="modal-section"></span></p>
+            <p>Parent: <span id="modal-parent"></span></p>
+            <p>Téléphone Parent: <span id="modal-tel"></span></span></p>
+            <p>Email Parent: <span id="modal-email-parent"></span></span></p>
+            </form>
+            </div>
+        </div>
+    </div>
+    
+<script src="{% static 'js/sort_mention.js' %}"></script>
+<script src="{% static 'js/mo.js' %}"></script>
+        <!-- Appointment End -->
+        {% include 'themes/footer.html' %}
+        {% endblock content %}
