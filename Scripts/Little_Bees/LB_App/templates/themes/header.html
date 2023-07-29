@@ -54,23 +54,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="{{'index'}}" class="nav-item nav-link active">Accueil</a>
-                    <a href="{{'about'}}" class="nav-item nav-link">A Propos</a>
-                    <a href="{{'classes'}}" class="nav-item nav-link">Classes</a>
-                    <a href="{{'gallery'}}" class="nav-item nav-link">Gallery</a>
+                    <a href="{% url 'index' %}" class="nav-item nav-link active">Accueil</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">A Propos</a>
+                    <a href="{% url 'classes' %}" class="nav-item nav-link">Classes</a>
+                    <a href="{% url 'gallery' %}" class="nav-item nav-link">Gallery</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Informations utiles</a>
                             
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                            <a href="{{'infos_utiles'}}" class="dropdown-item">Liste des Inscrits</a>
-                            <a href="{{'resultats'}}" class="dropdown-item">Resultat Concours</a>
-                            <a href="{{'activity'}}" class="dropdown-item">Nos activités scolaires</a>
-                            <a href="{{'team'}}" class="dropdown-item">Professeurs populaires</a>
-                            <a href="{{'appointment'}}" class="dropdown-item">Prendre un rendez-vous</a>
-                            <a href="{{'testimonial'}}" class="dropdown-item">Témoignage</a>
+                            <a href="{% url 'infos_utiles' %}" class="dropdown-item">Liste des Inscrits</a>
+                            <a href="{% url 'resultats' %}" class="dropdown-item">Resultat Concours</a>
+                            <a href="" class="dropdown-item">Nos activités scolaires</a>
+                            <a href="" class="dropdown-item">Professeurs populaires</a>
+                            <a href="" class="dropdown-item">Prendre un rendez-vous</a>
+                            <a href="" class="dropdown-item">Témoignage</a>
                         </div>
                     </div>
-                    <a href="{{'contact'}}" class="nav-item nav-link">Contacts</a>
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contacts</a>
                 </div>
                 <a href="{% url 'login' %}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Se connecter<i class="fa fa-user ms-3"></i></a>
             </div>
